@@ -13,13 +13,20 @@ return new class extends Migration
     {
         Schema::create('pacientes', function (Blueprint $table) {
             $table->id();
+            $table->date('fecha_ingreso');
             $table->string('nombres');
             $table->string('apellidos');
+            $table->string('cedula')->nullable();
             $table->date('fecha_nacimiento');
-            $table->string('direccion')->nullable();
-            $table->string('telefono')->nullable();
-            $table->string('email')->unique()->nullable();
+            $table->string('eps');
+            $table->string('edad')->nullable();
+            $table->string('sexo');
             $table->timestamps();
+
+            $table->string('des_macro');
+            $table->string('des_micro');
+            $table->string('diagnostico_final');
+            $table->string('resultado_lab');
         });
     }
 
