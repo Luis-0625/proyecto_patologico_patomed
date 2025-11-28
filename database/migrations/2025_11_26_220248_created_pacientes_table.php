@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('pacientes', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('apellido');
+            $table->string('nombres');
+            $table->string('apellidos');
             $table->date('fecha_nacimiento');
+            $table->string('direccion')->nullable();
             $table->string('telefono')->nullable();
             $table->string('email')->unique()->nullable();
             $table->timestamps();
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('pacientes');
     }
 };
